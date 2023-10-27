@@ -10,9 +10,12 @@ app = Flask(__name__)
 
 def background_task(data):
     try:
+        print('inside background')
         prompt = prompts.get_prompt_to_get_blueprint(data)
         if prompt is not None:
+            print('before blup')
             blueprint = ai.get_blueprint(prompt)
+            print('after blup')
             gmail.send_email('Check out your Blueprint', blueprint, data['Email Address'])
             
             data_str = json.dumps(data)
@@ -26,7 +29,6 @@ def background_task(data):
 def handle():
     try:
         data = request.json
-        print(data)
 
         thread = Thread(target=background_task, args=[data])
         thread.start()
