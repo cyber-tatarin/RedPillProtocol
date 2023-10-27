@@ -30,8 +30,7 @@ def handle():
     try:
         data = request.json
 
-        thread = Thread(target=background_task, args=[data])
-        thread.start()
+        background_task(data)
 
         return jsonify({"message": "Data received successfully"}), 200
 
