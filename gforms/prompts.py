@@ -1,4 +1,4 @@
-from config import logger
+from gforms import config
 
 
 def get_prompt_to_get_blueprint(data) -> str | None:
@@ -75,6 +75,6 @@ and advantages of each activity in the routine.
         
         return prompt
     except Exception as x:
-        logger.exception(x)
+        config.logger.exception(x)
         return None
     

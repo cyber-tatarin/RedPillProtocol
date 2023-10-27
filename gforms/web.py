@@ -3,8 +3,7 @@ import json
 from flask import Flask, request, jsonify
 from threading import Thread
 # Assuming the following imports are in your environment
-from gforms import prompts, ai, gsheets, gmail
-from config import logger
+from gforms import prompts, ai, gsheets, gmail, config
 
 app = Flask(__name__)
 
@@ -23,7 +22,7 @@ def background_task(data):
             gsheets.insert_base_items([[data_str, blueprint, prompt]])
 
     except Exception as x:
-        logger.exception(x)
+        config.logger.exception(x)
 
 
 @app.route('/handle_gforms_notifications', methods=['POST'])
