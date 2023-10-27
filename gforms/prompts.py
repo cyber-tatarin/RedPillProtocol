@@ -1,4 +1,6 @@
 def get_prompt_to_get_blueprint(data) -> str | None:
+    print('inside prompt')
+    print(data['Full Name'])
     try:
         prompt = f"""
 # MISSION
