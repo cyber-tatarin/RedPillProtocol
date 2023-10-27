@@ -10,6 +10,8 @@ load_dotenv(find_dotenv())
 GPT_MODEL = os.getenv("GPT_MODEL")
 openai.api_key = os.getenv("OPENAI_API_TOKEN")
 
+print(GPT_MODEL)
+
 
 def get_blueprint(prompt: str) -> str:
     
