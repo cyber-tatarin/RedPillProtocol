@@ -1,3 +1,6 @@
+from config import logger
+
+
 def get_prompt_to_get_blueprint(data) -> str | None:
     print('inside prompt')
     print(data['Full Name'])
@@ -72,6 +75,6 @@ and advantages of each activity in the routine.
         
         return prompt
     except Exception as x:
-        print(x)
+        logger.exception(x)
         return None
     
