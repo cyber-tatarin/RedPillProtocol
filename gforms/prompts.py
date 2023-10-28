@@ -68,7 +68,7 @@ Areas of Improvement: {', '.join(data['Which areas are you looking to improve in
 Top 3 Goals: {data['What are your top 3 personal development goals or goals in general for the next year? ']}
 5-Year Vision: {data['Where do you see yourself in 5 years?']}
 10-Year Vision: {data['Where do you see yourself in 10 years?']}
-Preferred Mentors: {data['What mentors on our platform resonate most with you and why?(e.g., Elon Musk, Andrew Huberman, David Goggins, Joe Rogan, Alex Hormozi, Jordan Peterson, Other)']}
+Preferred Mentors: {data['Which mentors on our platform resonate most with you and why?(e.g., Elon Musk, Andrew Huberman, David Goggins, Joe Rogan, Alex Hormozi, Jordan Peterson, Other)']}
 Preferred Learning Medium: {', '.join(data['Do you have a preference for books, podcasts, videos, or articles for learning?'])}
 Anticipated Obstacles: {data['What obstacles or challenges do you foresee in achieving your goals? ']}
 Additional Information: {data["Is there anything else you'd like us to know or consider when creating your Blueprint? "]}
