@@ -21,7 +21,7 @@ def background_task(data):
                         f"Any kind of feedback is very valuable for us.\n" \
                         f"If you are not satisfied with the Blueprint, we will send you another " \
                         f"one taking your feedback into account.\nBy the way, you can maintain and " \
-                        f"improve your lifestyle with the" \
+                        f"improve your lifestyle with the " \
                         f"Blueprint for the 2nd week by filling the feedback form\n\n" \
                         f"https://forms.gle/VQRdsc43q51VdsgW6"
             gmail.send_email('Check out your Blueprint', blueprint, data['Email Address'])
