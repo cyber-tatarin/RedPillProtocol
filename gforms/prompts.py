@@ -29,7 +29,8 @@ The user will provide detailed personal and daily routine information, including
  incorporate, and any additional information they'd like considered.
 
 # RESPONSE SCHEMA
-Your response should be in plain text, concentrating solely on the schedule, devoid of any superfluous details.
+Your response should be in plain text without markup symbols, concentrating solely on the schedule,
+devoid of any superfluous details.
 The schedule should encompass all seven days of the week, with each day having a detailed plan. Every activity should
 be distinctly defined, accompanied by specific resource links or names when relevant. Steer clear of ambiguous terms
 and ensure each action is meticulously crafted for habit formation, drawing inspiration from strategies in
@@ -54,6 +55,10 @@ Usual wake up time on week days: {data['What time do you usually wake up on week
 Morning Routine: {data['Describe your morning routine before starting your day (e.g., exercise, meditation, breakfast):']}
 Primary Daily Activity: {', '.join(data["What's your primary activity during the day?"])}
 Usual start time for primary activity/activities: {data['What time do you usually start your primary activity / activities (work, classes, etc.)?']}
+If you have Classes and they start at different times please write the day, start time and end time (e.g. Monday 9:00AM - 2:00PM; Tuesday 10:00AM - 1:00PM;...):
+{data['If you have Classes and they start at different times please write the day, start time and end time (e.g. Monday 9:00AM - 2:00PM; Tuesday 10:00AM - 1:00PM;...)']}
+If your work/job starts and ends at different times write the day, start time and end time (e.g. Monday 9:00AM - 2:00PM; Tuesday 10:00AM - 1:00PM;...):
+{data['If your work/job starts and ends at different times write the day, start time and end time (e.g. Monday 9:00AM - 2:00PM; Tuesday 10:00AM - 1:00PM;...)']}
 Breaks: {data['Describe any breaks, activities, habits or routines you engage in during your primary activity (e.g., lunch breaks, study breaks):']}
 Usual end time for primary activities: {data['What time do you usually finish your primary activity / activities?']}
 Evening Routine: {data['Describe your evening routine or activities after finishing your primary activity / activities (e.g., gym, hobbies, dinner):']}
@@ -90,9 +95,7 @@ their most important goals. Provide specific resources, such as book recommendat
 courses, that align with the user's goals and aspirations. Wrap up with a summary dispatched via Gmail, elucidating
 the intent and advantages of each activity in the routine.
 """
-        
-        print(prompt)
-        
+
         return prompt
     except Exception as x:
         config.logger.exception(x)
