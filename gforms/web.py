@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 from flask import Flask, request, jsonify
 from threading import Thread
@@ -27,7 +28,12 @@ def background_task(data):
             gmail.send_email('Check out your Blueprint', blueprint, data['Email Address'])
             
             data_str = json.dumps(data)
-            gsheets.insert_base_items([[data_str, blueprint, prompt]])
+            now = datetime.now()
+            epoch = datetime(1899, 12, 30)
+            delta = now - epoch
+            current_time = delta.days + (delta.seconds / 86400)
+            
+            gsheets.insert_base_items([[data_str, blueprint, prompt, current_time]])
 
     except Exception as x:
         config.logger.exception(x)
