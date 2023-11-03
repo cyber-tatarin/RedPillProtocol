@@ -6,7 +6,7 @@ from flask import Flask, request, jsonify
 # Assuming the following imports are in your environment
 from gforms import prompts, ai, gsheets, gmail, config
 from gforms.gmail import create_text_file
-from util import Constants
+from gforms.util import Constants
 
 app = Flask(__name__)
 
