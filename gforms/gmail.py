@@ -59,7 +59,9 @@ def send_email(header, body, recipient_email, attachment_path=None):
 def create_text_file(folder_path, file_name, content, participant):
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
-    file_name = os.path.join(folder_path, participant, file_name)
+        print(f"Create dir for BP. Existence: {os.path.exists(folder_path)}")
+    file_name = os.path.join(folder_path, participant + "-" + file_name)
+    print(file_name)
 
     # Write the content to the file
     with open(file_name, 'w') as file:
