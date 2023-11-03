@@ -1,9 +1,7 @@
-from dotenv import load_dotenv, find_dotenv
+import os
 
 import openai
-import os
-import logging
-
+from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
 
@@ -14,13 +12,12 @@ print(GPT_MODEL, 'gpt_model!')
 
 
 def get_blueprint(prompt: str) -> str:
-    
     response = openai.ChatCompletion.create(
         model=GPT_MODEL,
         messages=[{"role": "user", "content": prompt}],
         temperature=0.7
     )
-    
+
     answer = response["choices"][0]["message"]["content"]
     return answer
 
