@@ -18,7 +18,7 @@ Usual wake up time on week days: {data['What time do you usually wake up on week
 Morning Routine: {data['Describe your morning routine before starting your day (e.g., exercise, meditation, breakfast):']}
 Usual start time for primary activity/activities: {data['What time do you usually start your primary activity / activities (work, classes, etc.)?']}
 Usual end time for primary activities: {data['What time do you usually finish your primary activity / activities?']}
-Monday start & end time: {data['Start and end time on Monday  (e.g. Classes: 9:00AM - 2:00PM; Work: 3:00PM - 8:00PM)']}
+Monday start & end time: {data['Start and end time on Monday (e.g. Classes: 9:00AM - 2:00PM; Work: 3:00PM - 8:00PM)']}
 Tuesday start & end time: {data['tart and end time on Tuesday']}
 Wednesday start & end time: {data['Start and end time on Wednesday']}
 Thursday start & end time: {data['Start and end time on Thursday']}
