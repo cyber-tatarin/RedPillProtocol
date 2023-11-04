@@ -18,13 +18,13 @@ Usual wake up time on week days: {data['What time do you usually wake up on week
 Morning Routine: {data['Describe your morning routine before starting your day (e.g., exercise, meditation, breakfast):']}
 Usual start time for primary activity/activities: {data['What time do you usually start your primary activity / activities (work, classes, etc.)?']}
 Usual end time for primary activities: {data['What time do you usually finish your primary activity / activities?']}
-Monday start & end time: {data["Start and end time on Monday  (e.g. Classes: 9:00AM - 2:00PM; Work: 3:00PM - 8:00PM)Classes: 3:00PM - 8:00PM; Work: 9:00AM - 3:00PM"]}
-Tuesday start & end time: {data["Start and end time on Tuesday"]}
-Wednesday start & end time: {data["Start and end time on Wednesday"]}
-Thursday start & end time: {data["Start and end time on Thursday"]}
-Friday start & end time: {data["Start and end time on Friday"]}
-Saturday start & end time: {data["Start and end time on Saturday"]}
-Sunday start & end time: {data["Start and end time on Sunday"]}
+Monday start & end time: {data['Start and end time on Monday  (e.g. Classes: 9:00AM - 2:00PM; Work: 3:00PM - 8:00PM)']}
+Tuesday start & end time: {data['tart and end time on Tuesday']}
+Wednesday start & end time: {data['Start and end time on Wednesday']}
+Thursday start & end time: {data['Start and end time on Thursday']}
+Friday start & end time: {data['Start and end time on Friday']}
+Saturday start & end time: {data['Start and end time on Saturday']}
+Sunday start & end time: {data['Start and end time on Sunday']}
 Breaks: {data['Describe any breaks, activities, habits or routines you engage in during your primary activity (e.g., lunch breaks, study breaks):']}
 Evening Routine: {data['Describe your evening routine or activities after finishing your primary activity / activities (e.g., gym, hobbies, dinner):']}
 Secondary Activities or commitments in the evening: {data['Do you have any secondary activities or commitments in the evening (e.g., part-time job, evening classes)? If so, please describe:']}
