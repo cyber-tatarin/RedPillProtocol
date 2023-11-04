@@ -1,7 +1,9 @@
 import os
 import smtplib
+from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from os.path import basename
 
 import markdown
 from dotenv import load_dotenv, find_dotenv
@@ -33,11 +35,8 @@ def send_email(header, body, recipient_email, attachment_path=None):
         try:
             # Open the file to be sent
             with open(attachment_path, "rb") as attachment:
-                part = MIMEText(attachment.read().decode("utf-8"), "pdf")
-                part.add_header(
-                    "Content-Disposition",
-                    f"attachment; filename= {attachment_path}",
-                )
+                part = MIMEApplication(attachment.read(), Name=basename(attachment_path))
+                part['Content-Disposition'] = 'attachment; filename="{}"'.format(basename(attachment_path))
                 msg.attach(part)
         except Exception as e:
             print("Error: Unable to attach file.")
