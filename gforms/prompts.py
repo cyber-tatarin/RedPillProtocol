@@ -12,7 +12,6 @@ Address: {data['Address (City, State)']}
 Age: {data['Age']}
 Gender: {data['Gender']}
 Occupation: {data['Occupation (Your job position / University + field of study)']}
-Education Level: {data['Education Level']}
 
 User's Daily Routine:
 Usual wake up time on week days: {data['What time do you usually wake up on week days?']}
