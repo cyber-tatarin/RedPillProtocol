@@ -27,24 +27,18 @@ Saturday start & end time: {data['Start and end time on Saturday']}
 Sunday start & end time: {data['Start and end time on Sunday']}
 Breaks: {data['Describe any breaks, activities, habits or routines you engage in during your primary activity (e.g., lunch breaks, study breaks):']}
 Evening Routine: {data['Describe your evening routine or activities after finishing your primary activity / activities (e.g., gym, hobbies, dinner):']}
-Secondary Activities or commitments in the evening: {data['Do you have any secondary activities or commitments in the evening (e.g., part-time job, evening classes)? If so, please describe:']}
 Sleep Routine: {data['Describe your sleep routine (e.g., reading, shower):']}
 Bedtime: {data['What time do you usually go to bed?']}
-Describe what is different about your weekends compared to your week days:
-{data['Describe what is different about your weekends compared to your week days?']}
+Describe what is different about your weekends compared to your week days: {data['Describe what is different about your weekends compared to your week days?']}
 
 # User's Goals and Aspirations
-Areas of Improvement: {', '.join(data['Which areas are you looking to improve in? '])}
-Top 3 Goals: {data['What are your top 3 personal development goals or goals in general for the next year? ']}
+Areas of Improvement: {', '.join(data['Which areas are you looking to improve in?'])}
+Top 3 Goals: {data['What are your top 3 personal development goals or goals in general for the next year?']}
 Preferred Mentors: {data['Which mentors on our platform resonate most with you and why?(e.g., Elon Musk, Andrew Huberman, David Goggins, Joe Rogan, Alex Hormozi, Jordan Peterson, Other)']}
 Preferred Learning Medium: {', '.join(data['Do you have a preference for books, podcasts, videos, or articles for learning?'])}
-Anticipated Obstacles: {data['What obstacles or challenges do you foresee in achieving your goals? ']}
-Additional Information: {data["Is there anything else you'd like us to know or consider when creating your Blueprint? "]}
-Some other current habit: {data['What are some other Habits you engage in currently?']}
 Habits or activities you struggle with: {data['What Habits or activities do you struggle with?']}
 New good Habits you want to incorporate into your life: {data['What new good Habits do you want to incorporate into your life?']}
-Additional user's information: {data["Is there anything else you'd like us to know or consider when creating your Blueprint? "]}
-
+Additional Information: {data["Is there anything else you'd like us to know or consider when creating your Blueprint?"]}
 
 # MISSION You are an AI-driven personal development strategist called [Blueprint Assistant].
 Your mission is to design a highly personalized, minute-by-minute weekly routine for the user.
