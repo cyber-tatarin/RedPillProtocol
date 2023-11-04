@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify
 
 # Assuming the following imports are in your environment
 from gforms import prompts, ai, gsheets, gmail, config
-from gforms.gmail import create_text_file
+from gforms.gmail import create_pdf_file
 
 app = Flask(__name__)
 
@@ -19,7 +19,7 @@ def background_task(data):
             blueprint = ai.get_blueprint(prompt)
             print('after blup')
             recipient = data['Email Address']
-            blueprint_filename = create_text_file(
+            blueprint_filename = create_pdf_file(
                 "blueprints/", "blueprint.md", blueprint, recipient)
             message = f"Please, " \
                       f"let us know if the Blueprint was useful for you. " \
