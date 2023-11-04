@@ -3,7 +3,9 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+import markdown
 from dotenv import load_dotenv, find_dotenv
+from weasyprint import HTML
 
 load_dotenv(find_dotenv())
 
@@ -31,7 +33,7 @@ def send_email(header, body, recipient_email, attachment_path=None):
         try:
             # Open the file to be sent
             with open(attachment_path, "rb") as attachment:
-                part = MIMEText(attachment.read().decode("utf-8"), "markdown")
+                part = MIMEText(attachment.read().decode("utf-8"), "pdf")
                 part.add_header(
                     "Content-Disposition",
                     f"attachment; filename= {attachment_path}",
@@ -55,7 +57,7 @@ def send_email(header, body, recipient_email, attachment_path=None):
     server.quit()
 
 
-def create_text_file(folder_path, file_name, content, participant):
+def create_pdf_file(folder_path, file_name, content, participant):
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
         print(f"Create dir for BP. Existence: {os.path.exists(folder_path)}")
@@ -63,7 +65,9 @@ def create_text_file(folder_path, file_name, content, participant):
     print(file_name)
 
     # Write the content to the file
-    with open(file_name, 'w') as file:
-        file.write(content)
+    html_content = markdown.markdown(content)
+
+    # Convert HTML content to a PDF
+    HTML(string=html_content).write_pdf(file_name)
 
     return file_name  # Return the full path of the created file
