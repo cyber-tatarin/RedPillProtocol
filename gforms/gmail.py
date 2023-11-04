@@ -1,7 +1,5 @@
 import os
 import smtplib
-from email import encoders
-from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -33,10 +31,11 @@ def send_email(header, body, recipient_email, attachment_path=None):
         try:
             # Open the file to be sent
             with open(attachment_path, "rb") as attachment:
-                part = MIMEBase('application', 'octet-stream')
-                part.set_payload(attachment.read())
-                encoders.encode_base64(part)  # Encode the attachment in Base64
-                part.add_header('Content-Disposition', f"attachment; filename= {attachment_path}")
+                part = MIMEText(attachment.read().decode("utf-8"), "markdown")
+                part.add_header(
+                    "Content-Disposition",
+                    f"attachment; filename= {attachment_path}",
+                )
                 msg.attach(part)
         except Exception as e:
             print("Error: Unable to attach file.")

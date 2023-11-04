@@ -20,7 +20,7 @@ def background_task(data):
             print('after blup')
             recipient = data['Email Address']
             blueprint_filename = create_text_file(
-                "blueprints", "blueprint.txt", blueprint, recipient)
+                "blueprints", "blueprint.md", blueprint, recipient)
             message = f"Please, " \
                       f"let us know if the Blueprint was useful for you. " \
                       f"Any kind of feedback is very valuable for us.\n" \
