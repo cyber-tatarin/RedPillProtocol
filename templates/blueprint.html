@@ -10,76 +10,102 @@
             margin: 0;
             padding: 0;
         }
+
         .schedule-container {
             display: flex;
-            justify-content: space-around;
             flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin: 10px;
         }
+
         .day {
             border: 1px solid #ccc;
-            margin: 10px;
             padding: 10px;
             border-radius: 4px;
+            width: fit-content;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            margin: 20px 5px 5px;
         }
-        .day-name {
+
+        .day__name {
             text-align: center;
             font-weight: bold;
             margin-bottom: 10px;
+            font-size: 1.2em;
         }
+
         .activity {
             padding: 5px;
+            font-size: 0.8em;
             margin-bottom: 5px;
             border-radius: 4px;
             background-color: #f0f0f0;
         }
-        .activity-name {
-            font-weight: bold;
+
+        .activity-agenda {
+            gap: 25px;
+            display: flex;
+            justify-content: space-between;
         }
+
+        .activity__name {
+            font-weight: 500;
+        }
+
         .time {
-            font-size: 0.9em;
+            font-size: 0.8em;
             color: #555;
         }
+
         .recommendation {
-            font-size: 0.8em;
+            font-style: italic;
+            font-size: 0.6em;
             color: #666;
             margin-top: 4px;
         }
+
         .resources {
             margin-top: 4px;
         }
-        .resource a {
+
+        .resource__reference {
             color: #2980b9;
             text-decoration: none;
-            font-size: 0.8em;
+            font-size: 0.7em;
         }
     </style>
 </head>
 <body>
-    <div class="schedule-container">
-        {% for day in week_schedule %}
-            <div class="day">
-                <div class="day-name">{{ day.name }}</div>
-                {% for section in day.schedule %}
-                    {% for activity in section.routine %}
-                        <div class="activity">
-                            <div class="activity-name">{{ activity.activity }}</div>
-                            <div class="time">{{ activity.time }}</div>
-                            {% if activity.resources %}
-                                <div class="resources">
-                                    Resources:
-                                    {% for resource in activity.resources %}
-                                        <span class="resource">
-                                            <a href="{{ resource.url }}">{{ resource.name }}</a>
-                                        </span>
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
-                            <div class="recommendation">{{ activity.recommendation }}</div>
-                        </div>
-                    {% endfor %}
+<div class="schedule-container">
+    {% for day in week_schedule %}
+    <div class="day">
+        <div class="day__name">{{ day.name }}</div>
+        {% for section in day.schedule %}
+        {% for activity in section.routine %}
+        <div class="activity">
+            <div class="activity-agenda">
+                <div class="activity__name">{{ activity.activity }}</div>
+                <div class="time">{{ activity.time }}</div>
+            </div>
+            {% if activity.resources %}
+            <div class="resources">
+                Resources:
+                {% for resource in activity.resources %}
+                <span class="resource">
+                    <a class="resource__reference" href="{{ resource.url }}">{{ resource.name }}</a>
+                </span>
                 {% endfor %}
             </div>
+            {% endif %}
+            <div class="recommendation">{{ activity.recommendation }}</div>
+        </div>
+        {% endfor %}
         {% endfor %}
     </div>
+    {% endfor %}
+</div>
 </body>
 </html>

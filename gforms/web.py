@@ -19,7 +19,7 @@ def background_task(data):
             blueprint_json = ai.generate_blueprint(user_data)
             print('after blup')
             recipient = data['Email Address']
-            blueprint_filename = create_pdf_file("blueprints/", "blueprint.pdf", blueprint_json, recipient)
+            blueprint_filename = create_pdf_file("blueprints", "blueprint.pdf", blueprint_json, recipient)
             message = f"Please, " \
                       f"let us know if the Blueprint was useful for you. " \
                       f"Any kind of feedback is very valuable for us.\n" \
