@@ -5,9 +5,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from os.path import basename
 
-import markdown
+import pdfkit
 from dotenv import load_dotenv, find_dotenv
-from weasyprint import HTML
+from jinja2 import Environment, FileSystemLoader
 
 load_dotenv(find_dotenv())
 
@@ -56,17 +56,19 @@ def send_email(header, body, recipient_email, attachment_path=None):
     server.quit()
 
 
-def create_pdf_file(folder_path, file_name, content, participant):
+def create_pdf_file(folder_path, file_name, json_content, participant):
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
         print(f"Create dir for BP. Existence: {os.path.exists(folder_path)}")
     file_name = os.path.join(folder_path, participant + "-" + file_name)
-    print(file_name)
 
-    # Write the content to the file
-    html_content = markdown.markdown(content)
+    env = Environment(loader=FileSystemLoader('.'))
+    template = env.get_template('/templates/blueprint.html')
 
-    # Convert HTML content to a PDF
-    HTML(string=html_content).write_pdf(file_name)
+    html_out = template.render(week_schedule=json_content)
+
+    print(html_out)
+
+    pdfkit.from_string(html_out, file_name)
 
     return file_name  # Return the full path of the created file

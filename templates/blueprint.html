@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Schedule</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .schedule-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .day {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .day-name {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .activity {
+            padding: 5px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+        }
+        .activity-name {
+            font-weight: bold;
+        }
+        .time {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .recommendation {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 4px;
+        }
+        .resources {
+            margin-top: 4px;
+        }
+        .resource a {
+            color: #2980b9;
+            text-decoration: none;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="schedule-container">
+        {% for day in week_schedule %}
+            <div class="day">
+                <div class="day-name">{{ day.name }}</div>
+                {% for section in day.schedule %}
+                    {% for activity in section.routine %}
+                        <div class="activity">
+                            <div class="activity-name">{{ activity.activity }}</div>
+                            <div class="time">{{ activity.time }}</div>
+                            {% if activity.resources %}
+                                <div class="resources">
+                                    Resources:
+                                    {% for resource in activity.resources %}
+                                        <span class="resource">
+                                            <a href="{{ resource.url }}">{{ resource.name }}</a>
+                                        </span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            <div class="recommendation">{{ activity.recommendation }}</div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
