@@ -65,6 +65,8 @@ def create_pdf_file(folder_path, file_name, json_content, participant):
     env = Environment(loader=FileSystemLoader('.'))
     template = env.get_template('/templates/blueprint.html')
 
+    print(json_content)
+
     html_out = template.render(week_schedule=json_content)
 
     print(html_out)
