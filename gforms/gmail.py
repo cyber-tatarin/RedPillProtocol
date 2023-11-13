@@ -71,8 +71,14 @@ def create_pdf_file(folder_path, file_name, json_content, participant):
     with open("blueprints/latest.json", 'w') as json_file:
         json.dump(json.loads(json_content), json_file, indent=4)
 
-    with open("blueprints/latest.json", 'w') as html_file:
+    if os.path.exists("blueprints/latest.json"):
+        print("json stored")
+
+    with open("blueprints/latestbp.html", 'w') as html_file:
         html_file.write(html_out)
+
+    if os.path.exists("blueprints/latestbp.html"):
+        print("html stored")
 
     pdfkit.from_string(html_out, file_name)
 
