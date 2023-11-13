@@ -37,7 +37,7 @@ Preferred Mentors: {data['Which mentors on our platform resonate most with you a
 Preferred Learning Medium: {', '.join(data['Do you have a preference for books, podcasts, videos, or articles for learning?'])}
 Habits or activities you struggle with: {data['What Habits or activities do you struggle with?']}
 New good Habits you want to incorporate into your life: {data['What new good Habits do you want to incorporate into your life?']}
-Additional properties to create your Blueprint?: {data['Is there anything else you''d like us to know or consider when creating your Blueprint?']}
+Additional properties to create your Blueprint?: {data["Is there anything else you'd like us to know or consider when creating your Blueprint?"]}
 """
 
         return prompt
