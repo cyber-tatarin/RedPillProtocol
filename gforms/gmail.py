@@ -67,6 +67,8 @@ def create_pdf_file(folder_path, file_name, json_content, participant):
 
     html_out = template.render(week_schedule=json_content)
 
+    print(html_out)
+
     pdfkit.from_string(html_out, file_name)
 
     return file_name
