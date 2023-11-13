@@ -23,7 +23,7 @@ def background_task(data):
                 json.dump(json.loads(blueprint_json), json_file, indent=4)
             if os.path.exists("blueprints/latest.json"):
                 print("json stored")
-
+            print("starting pdf generating...")
             recipient = data['Email Address']
             blueprint_filename = create_pdf_file("blueprints", "blueprint.pdf", blueprint_json, recipient)
             message = f"Please, " \
