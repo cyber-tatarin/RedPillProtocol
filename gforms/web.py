@@ -19,11 +19,6 @@ def background_task(data):
             print('before blup')
             blueprint_json = ai.generate_blueprint(user_data)
             print(f"receive AI response. Length: {len(blueprint_json)}")
-            with open("blueprints/latest.json", 'w') as json_file:
-                json.dump(json.loads(blueprint_json), json_file, indent=4)
-            if os.path.exists("blueprints/latest.json"):
-                print("json stored")
-            print("starting pdf generating...")
             recipient = data['Email Address']
             blueprint_filename = create_pdf_file("blueprints", "blueprint.pdf", blueprint_json, recipient)
             message = f"Please, " \

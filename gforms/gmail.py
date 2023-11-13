@@ -1,4 +1,3 @@
-import json
 import os
 import smtplib
 from email.mime.application import MIMEApplication
@@ -68,6 +67,12 @@ def create_pdf_file(folder_path, file_name, json_content, participant):
 
     html_out = template.render(week_schedule=json_content)
     print('generate template')
+
+    with open("blueprints/latest.json", 'w') as json_file:
+        json_file.write(json_content)
+
+    if os.path.exists("blueprints/latest.json"):
+        print("json stored")
 
     with open("blueprints/latestbp.html", 'w') as html_file:
         html_file.write(html_out)
