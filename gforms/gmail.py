@@ -67,6 +67,7 @@ def create_pdf_file(folder_path, file_name, json_content, participant):
     template = env.get_template('/templates/blueprint.html')
 
     html_out = template.render(week_schedule=json_content)
+    print('generate template')
 
     with open("blueprints/latest.json", 'w') as json_file:
         json.dump(json.loads(json_content), json_file, indent=4)
@@ -81,5 +82,6 @@ def create_pdf_file(folder_path, file_name, json_content, participant):
         print("html stored")
 
     pdfkit.from_string(html_out, file_name)
+    print('generate pdf')
 
     return file_name
