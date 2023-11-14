@@ -19,7 +19,7 @@ print(f"GPT model: {GPT_MODEL}, assistant id: {ASSISTANT_ID}")
 
 def generate_blueprint(user_data: str) -> str:
     thread = client.beta.threads.create()
-    message = client.beta.threads.messages.create(
+    client.beta.threads.messages.create(
         thread_id=thread.id,
         role="user",
         content=user_data
@@ -40,9 +40,8 @@ def generate_blueprint(user_data: str) -> str:
         else:
             pass
 
-    response_message = client.beta.threads.messages.retrieve(
-        thread_id=thread.id,
-        message_id=message.id
+    messages = client.beta.threads.messages.list(
+        thread_id=thread.id
     )
 
-    return response_message.content[0].text.value
+    return messages.data[0].content[0].text.value
