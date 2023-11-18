@@ -51,7 +51,7 @@ def get_day_blueprint(day_data: str, thread_id: str) -> str:
         if run.status == "completed":
             break
         elif run.status == 'failed':
-            raise Exception('Failed attempt to communicate with OpenAI')
+            raise Exception('Failed attempt to communicate with OpenAI. Error: ' + run.last_error.message)
         else:
             pass
 
