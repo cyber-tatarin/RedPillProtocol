@@ -27,7 +27,7 @@ def background_task(data):
                       f"improve your lifestyle with the " \
                       f"Blueprint for the 2nd week by filling the feedback form\n\n" \
                       f"https://forms.gle/VQRdsc43q51VdsgW6"
-            gmail.send_email('Check out your Blueprint', message, data['Email Address'], blueprint_filename)
+            gmail.send_email('Check out your Blueprint', message, recipient, blueprint_filename)
 
             data_str = json.dumps(data)
             now = datetime.now()
