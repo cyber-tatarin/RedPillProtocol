@@ -40,6 +40,8 @@ def get_day_blueprint(day_data: str, thread_id: str) -> str:
         assistant_id=ASSISTANT_ID
     )
 
+    print(run)
+
     while True:
         time.sleep(1)
         run = client.beta.threads.runs.retrieve(
@@ -64,7 +66,9 @@ def get_day_blueprint(day_data: str, thread_id: str) -> str:
 
 def get_blueprint(data: dict[str, str]) -> str:
     thread = init_assistant_context(data["context"])
+    print("Thread: " + thread)
     monday = get_day_blueprint(data["monday"], thread)
+    print(monday)
     tuesday = get_day_blueprint(data["tuesday"], thread)
     wednesday = get_day_blueprint(data["wednesday"], thread)
     thursday = get_day_blueprint(data["thursday"], thread)
