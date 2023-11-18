@@ -71,7 +71,7 @@ def create_pdf_file(folder_path, file_name, json_content_str, participant):
     print('generate template')
 
     with open("blueprints/latest.json", 'w') as json_file:
-        json_file.write(json_content)
+        json_file.write(json_content_str)
 
     if os.path.exists("blueprints/latest.json"):
         print("json stored")
@@ -83,6 +83,6 @@ def create_pdf_file(folder_path, file_name, json_content_str, participant):
         print("html stored")
 
     pdfkit.from_string(html_out, file_name)
-    print('generate pdf')
+    print('generated pdf')
 
     return file_name
