@@ -44,30 +44,30 @@ def extract_user_context(data) -> dict[str, str] | None:
 """
         monday_data = extract_day_information(
             "Monday",
-            f"Monday start & end time: {data['Start and end time on Monday (e.g. Classes: 9:00AM - 2:00PM; Work: 3:00PM - 8:00PM)']}")
+            f"Monday start & end time: {data['Special Activities on: Monday (with start and end time).']}")
         tuesday_data = extract_day_information(
             "Tuesday",
-            f"Tuesday start & end time: {data['Start and end time on Tuesday']}"
+            f"Tuesday start & end time: {data['Tuesday']}"
         )
         wednesday_data = extract_day_information(
             "Wednesday",
-            f"Wednesday start & end time: {data['Start and end time on Wednesday']}"
+            f"Wednesday start & end time: {data['Wednesday']}"
         )
         thursday_data = extract_day_information(
             "Thursday",
-            f"Thursday start & end time: {data['Start and end time on Thursday']}"
+            f"Thursday start & end time: {data['Thursday']}"
         )
         friday_data = extract_day_information(
             "Friday",
-            f"Friday start & end time: {data['Start and end time on Friday']}"
+            f"Friday start & end time: {data['Friday']}"
         )
         saturday_data = extract_day_information(
             "Saturday",
-            f"Saturday start & end time: {data['Start and end time on Saturday']}"
+            f"Saturday start & end time: {data['Saturday']}"
         )
         sunday_data = extract_day_information(
             "Sunday",
-            f"Sunday start & end time: {data['Start and end time on Sunday']}"
+            f"Sunday start & end time: {data['Sunday']}"
         )
 
         return {
