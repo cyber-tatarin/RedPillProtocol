@@ -72,6 +72,7 @@ def extract_user_context(data) -> dict[str, str] | None:
 
         return {
             "context": context,
+            "recipient": f"{data['Email Address']}",
             "monday": monday_data,
             "tuesday": tuesday_data,
             "wednesday": wednesday_data,

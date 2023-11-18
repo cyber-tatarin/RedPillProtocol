@@ -17,7 +17,7 @@ def background_task(data):
         if data is not None:
             print('before blup')
             blueprint_json = ai.get_blueprint(data)
-            recipient = data['Email Address']
+            recipient = data['recipient']
             blueprint_filename = create_pdf_file("blueprints", "blueprint.pdf", blueprint_json, recipient)
             message = f"Please, " \
                       f"let us know if the Blueprint was useful for you. " \
