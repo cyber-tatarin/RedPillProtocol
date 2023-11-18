@@ -13,11 +13,10 @@ app = Flask(__name__)
 def background_task(data):
     try:
         print('inside background')
-        user_data = prompts.extract_user_data(data)
-        if user_data is not None:
+        data = prompts.extract_user_context(data)
+        if data is not None:
             print('before blup')
-            blueprint_json = ai.generate_blueprint(user_data)
-            print(f"receive AI response. Length: {len(blueprint_json)}")
+            blueprint_json = ai.get_blueprint(data)
             recipient = data['Email Address']
             blueprint_filename = create_pdf_file("blueprints", "blueprint.pdf", blueprint_json, recipient)
             message = f"Please, " \
@@ -36,7 +35,7 @@ def background_task(data):
             delta = now - epoch
             current_time = delta.days + (delta.seconds / 86400)
 
-            gsheets.insert_base_items([[data_str, blueprint_json, user_data, current_time]])
+            gsheets.insert_base_items([[data_str, blueprint_json, data["context"], current_time]])
 
     except Exception as x:
         config.logger.exception(x)

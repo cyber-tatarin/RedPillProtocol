@@ -27,7 +27,7 @@
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            margin: 20px 5px 5px;
+            margin: 35px 5px 5px;
         }
 
         .day__name {
@@ -35,6 +35,13 @@
             font-weight: bold;
             margin-bottom: 10px;
             font-size: 1.2em;
+        }
+
+        .section__name {
+            text-transform: capitalize;
+            font-style: italic;
+            font-weight: bold;
+            margin-left: 10px;
         }
 
         .activity {
@@ -84,26 +91,27 @@
     <div class="day">
         <div class="day__name">{{ day.name }}</div>
         {% for section in day.schedule %}
-        {% for activity in section.routine %}
-        <div class="activity">
-            <div class="activity-agenda">
-                <div class="activity__name">{{ activity.activity }}</div>
-                <div class="time">{{ activity.time }}</div>
+        <div class="section">
+            <div class="section__name">{{ section.name }}</div>
+            {% for activity in section.routine %}
+            <div class="activity">
+                <div class="activity-agenda">
+                    <div class="activity__name">{{ activity.activity }}</div>
+                    <div class="time">{{ activity.time }}</div>
+                </div>
+                {% if activity.resources %}
+                <div class="resources">
+                    Resources:
+                    {% for resource in activity.resources %}
+                    <a class="resource__reference" href="{{ resource.url }}">{{ resource.name }}</a><br>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
-            {% if activity.resources %}
-            <div class="resources">
-                Resources:
-                {% for resource in activity.resources %}
-                <span class="resource">
-                    <a class="resource__reference" href="{{ resource.url }}">{{ resource.name }}</a>
-                </span>
-                {% endfor %}
-            </div>
-            {% endif %}
-            <div class="recommendation">{{ activity.recommendation }}</div>
+            {% endfor %}
         </div>
         {% endfor %}
-        {% endfor %}
+        <div class="recommendation">{{ day.recommendation }}</div>
     </div>
     {% endfor %}
 </div>
