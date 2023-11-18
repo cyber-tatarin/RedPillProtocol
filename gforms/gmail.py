@@ -1,3 +1,4 @@
+import json
 import os
 import smtplib
 from email.mime.application import MIMEApplication
@@ -56,7 +57,7 @@ def send_email(header, body, recipient_email, attachment_path=None):
     server.quit()
 
 
-def create_pdf_file(folder_path, file_name, json_content, participant):
+def create_pdf_file(folder_path, file_name, json_content_str, participant):
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
         print(f"Create dir for BP. Existence: {os.path.exists(folder_path)}")
@@ -64,6 +65,7 @@ def create_pdf_file(folder_path, file_name, json_content, participant):
 
     env = Environment(loader=FileSystemLoader('.'))
     template = env.get_template('/templates/blueprint.html')
+    json_content = json.loads(json_content_str)
 
     html_out = template.render(week_schedule=json_content)
     print('generate template')
