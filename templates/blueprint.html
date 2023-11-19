@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekly Schedule</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Readex+Pro:wght@400;700&family=Roboto:wght@200;400;500&family=Signika&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -20,7 +25,6 @@
         }
 
         .day {
-            border: 1px solid #ccc;
             padding: 10px;
             border-radius: 4px;
             width: fit-content;
@@ -31,57 +35,127 @@
         }
 
         .day__name {
+            font-family: 'Paytone One', sans-serif;
+            font-size: 2.5em;
             text-align: center;
             font-weight: bold;
             margin-bottom: 10px;
-            font-size: 1.2em;
+        }
+
+        .section {
+            margin-top: 35px;
         }
 
         .section__name {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4em;
             text-transform: capitalize;
-            font-style: italic;
             font-weight: bold;
-            margin-left: 10px;
+            margin-left: 40px;
+            margin-bottom: 25px;
+        }
+
+        .activities {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-column-gap: 25px;
         }
 
         .activity {
-            padding: 5px;
+
+            display: flex;
             font-size: 0.8em;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             border-radius: 4px;
             background-color: #f0f0f0;
         }
 
         .activity-agenda {
-            gap: 25px;
+            flex-basis: 100%;
+            border-left: 2px solid white;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .activity__name {
-            font-weight: 500;
+        .activity-name {
+            font-family: "Readex Pro", sans-serif;
+            width: 100%;
+            text-align: center;
+            height: fit-content;
+            align-self: center;
+            justify-self: center;
+            align-items: center;
+            font-weight: 400;
+            font-size: 1em;
+        }
+
+        .activity-name__value {
+            margin: 15px 20px 15px 20px;
         }
 
         .time {
-            font-size: 0.8em;
+            flex-basis: 20%;
+            width: fit-content;
+            margin-left: 10px;
+            margin-right: 10px;
+            text-align: center;
+            font-family: 'Readex Pro', sans-serif;
+            font-weight: 700;
+            align-self: center;
+            font-size: 1.1em;
             color: #555;
         }
 
         .recommendation {
+            margin-top: 12px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .recommendation__agenda {
+            font-weight: 500;
+            font-size: 1em;
+        }
+
+        .recommendation__hint {
             font-style: italic;
-            font-size: 0.6em;
+            font-size: 0.75em;
+            font-weight: 200;
             color: #666;
             margin-top: 4px;
         }
 
         .resources {
-            margin-top: 4px;
+            border-top: 2px solid white;
+            margin: 0;
+            padding: 5px;
+            list-style: none;
         }
 
         .resource__reference {
             color: #2980b9;
             text-decoration: none;
+            font-family: 'Signika', sans-serif;
+            font-style: italic;
             font-size: 0.7em;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .footer-nav {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo__image {
+            height: 200px;
         }
     </style>
 </head>
@@ -93,27 +167,54 @@
         {% for section in day.schedule %}
         <div class="section">
             <div class="section__name">{{ section.name }}</div>
-            {% for activity in section.routine %}
-            <div class="activity">
-                <div class="activity-agenda">
-                    <div class="activity__name">{{ activity.activity }}</div>
+            <div class="activities">
+                {% for activity in section.routine %}
+                <div class="activity">
                     <div class="time">{{ activity.time }}</div>
+                    <div class="activity-agenda">
+                        <div class="activity-name">
+                            <div class="activity-name__value">{{ activity.activity }}</div>
+                        </div>
+                        <div>
+                            {% if activity.resources %}
+                            <ul class="resources">
+                                {% for resource in activity.resources %}
+                                <li>
+                                    <a class="resource__reference" href="{{ resource.url }}">{{ resource.name }}</a><br>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
-                {% if activity.resources %}
-                <div class="resources">
-                    Resources:
-                    {% for resource in activity.resources %}
-                    <a class="resource__reference" href="{{ resource.url }}">{{ resource.name }}</a><br>
-                    {% endfor %}
-                </div>
-                {% endif %}
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
         {% endfor %}
-        <div class="recommendation">{{ day.recommendation }}</div>
+        <div class="recommendation">
+            <div class="recommendation__agenda">Daily recommendation:</div>
+            <div class="recommendation__hint">{{ day.recommendation }}</div>
+        </div>
     </div>
     {% endfor %}
 </div>
+<footer class="footer">
+    <ul class="footer-nav">
+        <li>
+            <a href="mailto:redpillprotocol@gmail.com">
+                <i class="fa-solid fa-envelope" style="color: #000000; font-size: 20px"></i>
+            </a>
+        </li>
+    </ul>
+    <div class="logo">
+<!--        <img class="logo__image" src="logo.svg" alt="Red Pill Protocol">-->
+    </div>
+    <ul class="footer-nav">
+        <li><i class="fa-brands fa-facebook" style="font-size: 20px"></i></li>
+        <li><i class="fa-brands fa-instagram" style="font-size: 20px"></i></li>
+        <li><i class="fa-brands fa-twitter" style="font-size: 20px"></i></li>
+    </ul>
+</footer>
 </body>
 </html>
