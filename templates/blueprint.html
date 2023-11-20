@@ -43,13 +43,15 @@
         }
 
         .sections {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            column-gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
 
         .section {
             margin-top: 35px;
+            flex: 0 0 22%;
+            margin-right: 2%;
         }
 
         .section__name {
