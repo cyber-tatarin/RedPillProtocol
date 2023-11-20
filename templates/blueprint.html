@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Readex+Pro:wght@400;700&family=Roboto:wght@200;400;500&family=Signika&display=swap"
           rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -24,6 +26,7 @@
         }
 
         .day {
+            page-break-before: always;
             padding: 10px;
             border-radius: 4px;
             width: fit-content;
@@ -41,27 +44,33 @@
             margin-bottom: 10px;
         }
 
+        .sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            column-gap: 20px;
+        }
+
         .section {
             margin-top: 35px;
         }
 
         .section__name {
+            text-align: center;
             font-family: 'Roboto', sans-serif;
             font-size: 1.4em;
             text-transform: capitalize;
             font-weight: bold;
-            margin-left: 40px;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
-        .activities {
-            display: grid;
-            grid-template-columns: 50% 50%;
-            grid-column-gap: 25px;
-        }
+        /*.activities {*/
+        /*    display: grid;*/
+        /*    grid-template-columns: 50% 50%;*/
+        /*    grid-column-gap: 25px;*/
+        /*}*/
 
         .activity {
-
+            page-break-inside: avoid;
             display: flex;
             font-size: 0.8em;
             margin-bottom: 10px;
@@ -80,7 +89,7 @@
         .activity-name {
             font-family: "Readex Pro", sans-serif;
             width: 100%;
-            text-align: center;
+            text-align: left;
             height: fit-content;
             align-self: center;
             justify-self: center;
@@ -163,34 +172,36 @@
     {% for day in week_schedule %}
     <div class="day">
         <div class="day__name">{{ day.name }}</div>
-        {% for section in day.schedule %}
-        <div class="section">
-            <div class="section__name">{{ section.name }}</div>
-            <div class="activities">
-                {% for activity in section.routine %}
-                <div class="activity">
-                    <div class="time">{{ activity.time }}</div>
-                    <div class="activity-agenda">
-                        <div class="activity-name">
-                            <div class="activity-name__value">{{ activity.activity }}</div>
-                        </div>
-                        <div>
-                            {% if activity.resources %}
-                            <ul class="resources">
-                                {% for resource in activity.resources %}
-                                <li>
-                                    <a class="resource__reference" href="{{ resource.url }}">{{ resource.name }}</a><br>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                            {% endif %}
+        <div class="sections">
+            {% for section in day.schedule %}
+            <div class="section">
+                <div class="section__name">{{ section.name }}</div>
+                <div class="activities">
+                    {% for activity in section.routine %}
+                    <div class="activity">
+                        <div class="time">{{ activity.time }}</div>
+                        <div class="activity-agenda">
+                            <div class="activity-name">
+                                <div class="activity-name__value">{{ activity.activity }}</div>
+                            </div>
+                            <div>
+                                {% if activity.resources %}
+                                <ul class="resources">
+                                    {% for resource in activity.resources %}
+                                    <li>
+                                        <a class="resource__reference" href="{{ resource.url }}">{{ resource.name }}</a><br>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
         <div class="recommendation">
             <div class="recommendation__agenda">Daily recommendation:</div>
             <div class="recommendation__hint">{{ day.recommendation }}</div>
@@ -207,13 +218,13 @@
         </li>
     </ul>
     <div class="logo">
-<!--        <img class="logo__image" src="logo.svg" alt="Red Pill Protocol">-->
+        <!--        <img class="logo__image" src="logo.svg" alt="Red Pill Protocol">-->
     </div>
-<!--    <ul class="footer-nav">-->
-<!--        <li><i class="fa-brands fa-facebook" style="font-size: 20px"></i></li>-->
-<!--        <li><i class="fa-brands fa-instagram" style="font-size: 20px"></i></li>-->
-<!--        <li><i class="fa-brands fa-twitter" style="font-size: 20px"></i></li>-->
-<!--    </ul>-->
+    <ul class="footer-nav">
+        <li><i class="fa-brands fa-facebook" style="font-size: 20px"></i></li>
+        <li><i class="fa-brands fa-instagram" style="font-size: 20px"></i></li>
+        <li><i class="fa-brands fa-twitter" style="font-size: 20px"></i></li>
+    </ul>
 </footer>
 </body>
 </html>

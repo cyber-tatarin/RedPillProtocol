@@ -82,7 +82,11 @@ def create_pdf_file(folder_path, file_name, json_content_str, participant):
     if os.path.exists("blueprints/latestbp.html"):
         print("html stored")
 
-    pdfkit.from_string(html_out, file_name)
+    options = {
+        'page-size': 'Letter',
+        'orientation': 'Landscape',
+    }
+    pdfkit.from_string(html_out, file_name, options=options)
     print('generated pdf')
 
     return file_name
