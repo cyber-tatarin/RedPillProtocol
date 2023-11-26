@@ -5,6 +5,8 @@ import openai
 from dotenv import load_dotenv, find_dotenv
 from openai import OpenAI
 
+from gforms.gdocs import retrieve_prompt
+
 load_dotenv(find_dotenv())
 
 GPT_MODEL = os.getenv("GPT_MODEL")
@@ -15,6 +17,11 @@ openai.api_key = os.getenv("OPENAI_API_TOKEN")
 client = OpenAI(api_key=os.getenv("OPENAI_API_TOKEN"))
 
 print(f"GPT model: {GPT_MODEL}, assistant id: {ASSISTANT_ID}")
+
+blueprint_assistant = client.beta.assistants.retrieve(ASSISTANT_ID)
+print(blueprint_assistant)
+blueprint_assistant = client.beta.assistants.update(ASSISTANT_ID, instructions=retrieve_prompt())
+print(blueprint_assistant)
 
 
 def init_assistant_context(user_context: str) -> str:
