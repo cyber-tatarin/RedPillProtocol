@@ -3,6 +3,7 @@ test.py
 __pycache__
 bot.log
 gsheets_key.json
+docs_key.json
 recommendations
 venv
 /web

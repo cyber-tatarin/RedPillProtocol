@@ -6,7 +6,7 @@
     <title>Weekly Schedule</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Readex+Pro:wght@400;700&family=Roboto:wght@200;400;500&family=Signika&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Paytone+One&family=Readex+Pro:wght@400;600&family=Roboto:wght@300;400;500&family=Signika&display=swap"
           rel="stylesheet">
     <style>
         body {
@@ -64,6 +64,7 @@
         }
 
         .activity {
+            position: relative;
             page-break-inside: avoid;
             display: flex;
             font-size: 0.8em;
@@ -147,6 +148,8 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
+            margin-top: 25px;
+            margin-bottom: 35px;
         }
 
         .footer-nav {
@@ -154,7 +157,12 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            gap: 15px;
+            gap: 25px;
+        }
+
+        .footer-nav__reference {
+            text-decoration: none;
+            font-family: 'Kanit', sans-serif;
         }
 
         .complete-marker {
@@ -165,6 +173,37 @@
             height: 1em;
             width: 1em;
             background-color: #fff;
+        }
+
+        .copyright {
+            font-size: 1.6em;
+            font-family: 'Paytone One', sans-serif;
+            font-weight: bold;
+        }
+
+        .copyright__company {
+            color: #ff5e55;
+        }
+
+        .copyright__span {
+            font-size: 0.5em;
+            color: #666666;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo {
+            width: 450px;
+        }
+
+        .footer-nav__image {
+            width: 30px;
         }
 
     </style>
@@ -215,8 +254,54 @@
 <footer class="footer">
     <ul class="footer-nav">
         <li>
-            <a href="mailto:redpillprotocol@gmail.com">
-                Need an update?
+            <a href="mailto:redpillprotocol@gmail.com" class="footer-nav__reference">
+                <img src="email-icon.png" alt="email" class="footer-nav__image">
+            </a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/redpillprotocol.ai/" class="footer-nav__reference">
+                <img src="instagram-icon.png" alt="instagram" class="footer-nav__image">
+            </a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/redpillprotocol.ai/" class="footer-nav__reference">
+                <img src="slack-icon.png" alt="slack" class="footer-nav__image">
+            </a>
+        </li>
+    </ul>
+    <div class="footer-logo">
+        <img class="logo" src="logo.jpg" alt="Red Pill Protocol">
+        <div class="copyright">
+            <div class="copyright-main">
+                &copy;
+                <span id="copyright__year"></span>
+                <span class="copyright__company">Red </span>
+                Pill Protocol.
+            </div>
+            <div class="copyright-addition">
+            <span class="copyright__span">
+                All rights reserved.
+            </span>
+            </div>
+        </div>
+        <script>
+            document.getElementById('copyright__year').textContent = new Date().getFullYear().toString();
+        </script>
+    </div>
+    <ul class="footer-nav">
+        <li>
+            <a href="mailto:redpillprotocol@gmail.com" class="footer-nav__reference">
+                <img src="linkedin-icon.png" alt="linkedIn" class="footer-nav__image">
+            </a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/redpillprotocol.ai/" class="footer-nav__reference">
+                <img src="twitter-icon.png" alt="twitter" class="footer-nav__image">
+            </a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/redpillprotocol.ai/" class="footer-nav__reference">
+                <img src="discord-icon.png" alt="discord" class="footer-nav__image">
             </a>
         </li>
     </ul>
