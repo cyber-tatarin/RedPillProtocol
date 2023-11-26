@@ -75,10 +75,11 @@ def get_blueprint(data: dict[str, str]) -> str:
     thread = init_assistant_context(data["context"])
     print("Thread: " + thread)
     monday = get_day_blueprint(data["monday"], thread)
-    tuesday = get_day_blueprint(data["tuesday"], thread)
-    wednesday = get_day_blueprint(data["wednesday"], thread)
-    thursday = get_day_blueprint(data["thursday"], thread)
-    friday = get_day_blueprint(data["friday"], thread)
-    saturday = get_day_blueprint(data["saturday"], thread)
-    sunday = get_day_blueprint(data["sunday"], thread)
-    return f"[{monday},{tuesday},{wednesday},{thursday},{friday},{saturday},{sunday}]"
+    # tuesday = get_day_blueprint(data["tuesday"], thread)
+    # wednesday = get_day_blueprint(data["wednesday"], thread)
+    # thursday = get_day_blueprint(data["thursday"], thread)
+    # friday = get_day_blueprint(data["friday"], thread)
+    # saturday = get_day_blueprint(data["saturday"], thread)
+    # sunday = get_day_blueprint(data["sunday"], thread)
+    return f"[{monday}]"
+    # f",{tuesday},{wednesday},{thursday},{friday},{saturday},{sunday}]")
