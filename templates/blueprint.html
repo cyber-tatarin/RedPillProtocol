@@ -161,8 +161,10 @@
         }
 
         .footer-nav__reference {
+            color: black;
             text-decoration: none;
             font-family: 'Kanit', sans-serif;
+            font-size: 1em;
         }
 
         .complete-marker {
@@ -204,6 +206,22 @@
 
         .footer-nav__image {
             width: 30px;
+        }
+
+        .blueprint-update {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-size: 1.8em;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .blueprint-update__button {
+            padding: 10px;
+            width: fit-content;
+            border-radius: 5%;
         }
 
     </style>
@@ -251,26 +269,33 @@
     </div>
     {% endfor %}
 </div>
+<div class="blueprint-update">
+    <div class="blueprint-update__button">
+        <a href="mailto:redpillprotocol@gmail.com" class="footer-nav__reference">
+            redpillprotocol@gmail.com
+        </a>
+    </div>
+</div>
 <footer class="footer">
-    <ul class="footer-nav">
-        <li>
-            <a href="mailto:redpillprotocol@gmail.com" class="footer-nav__reference">
-                <img src="file:///email-icon.png" alt="email" class="footer-nav__image">
-            </a>
-        </li>
-        <li>
-            <a href="https://www.instagram.com/redpillprotocol.ai/" class="footer-nav__reference">
-                <img src="file:///instagram-icon.png" alt="instagram" class="footer-nav__image">
-            </a>
-        </li>
-        <li>
-            <a href="https://www.instagram.com/redpillprotocol.ai/" class="footer-nav__reference">
-                <img src="file:///slack-icon.png" alt="slack" class="footer-nav__image">
-            </a>
-        </li>
-    </ul>
+    <!--    <ul class="footer-nav">-->
+    <!--        <li>-->
+    <!--            <a href="mailto:redpillprotocol@gmail.com" class="footer-nav__reference">-->
+    <!--                <img src="file:///email-icon.png" alt="email" class="footer-nav__image">-->
+    <!--            </a>-->
+    <!--        </li>-->
+    <!--        <li>-->
+    <!--            <a href="https://www.instagram.com/redpillprotocol.ai/" class="footer-nav__reference">-->
+    <!--                <img src="instagram-icon.png" alt="instagram" class="footer-nav__image">-->
+    <!--            </a>-->
+    <!--        </li>-->
+    <!--        <li>-->
+    <!--            <a href="https://www.instagram.com/redpillprotocol.ai/" class="footer-nav__reference">-->
+    <!--                <img src="slack-icon.png" alt="slack" class="footer-nav__image">-->
+    <!--            </a>-->
+    <!--        </li>-->
+    <!--    </ul>-->
     <div class="footer-logo">
-        <img class="logo" src="file:///logo.jpg" alt="Red Pill Protocol">
+        <!--        <img class="logo" src="file:///logo.jpg" alt="Red Pill Protocol">-->
         <div class="copyright">
             <div class="copyright-main">
                 &copy;
@@ -288,23 +313,23 @@
             document.getElementById('copyright__year').textContent = new Date().getFullYear().toString();
         </script>
     </div>
-    <ul class="footer-nav">
-        <li>
-            <a href="mailto:redpillprotocol@gmail.com" class="footer-nav__reference">
-                <img src="linkedin-icon.png" alt="linkedIn" class="footer-nav__image">
-            </a>
-        </li>
-        <li>
-            <a href="https://www.instagram.com/redpillprotocol.ai/" class="footer-nav__reference">
-                <img src="twitter-icon.png" alt="twitter" class="footer-nav__image">
-            </a>
-        </li>
-        <li>
-            <a href="https://www.instagram.com/redpillprotocol.ai/" class="footer-nav__reference">
-                <img src="discord-icon.png" alt="discord" class="footer-nav__image">
-            </a>
-        </li>
-    </ul>
+    <!--    <ul class="footer-nav">-->
+    <!--        <li>-->
+    <!--            <a href="mailto:redpillprotocol@gmail.com" class="footer-nav__reference">-->
+    <!--                <img src="linkedin-icon.png" alt="linkedIn" class="footer-nav__image">-->
+    <!--            </a>-->
+    <!--        </li>-->
+    <!--        <li>-->
+    <!--            <a href="https://www.instagram.com/redpillprotocol.ai/" class="footer-nav__reference">-->
+    <!--                <img src="twitter-icon.png" alt="twitter" class="footer-nav__image">-->
+    <!--            </a>-->
+    <!--        </li>-->
+    <!--        <li>-->
+    <!--            <a href="https://www.instagram.com/redpillprotocol.ai/" class="footer-nav__reference">-->
+    <!--                <img src="discord-icon.png" alt="discord" class="footer-nav__image">-->
+    <!--            </a>-->
+    <!--        </li>-->
+    <!--    </ul>-->
 </footer>
 </body>
 </html>
