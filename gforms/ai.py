@@ -77,8 +77,9 @@ def get_blueprint(data: dict[str, str]) -> str:
     monday = get_day_blueprint(data["monday"], thread)
     tuesday = get_day_blueprint(data["tuesday"], thread)
     wednesday = get_day_blueprint(data["wednesday"], thread)
-    thursday = get_day_blueprint(data["thursday"], thread)
-    friday = get_day_blueprint(data["friday"], thread)
-    saturday = get_day_blueprint(data["saturday"], thread)
-    sunday = get_day_blueprint(data["sunday"], thread)
-    return f"[{monday},{tuesday},{wednesday},{thursday},{friday},{saturday},{sunday}]"
+    # thursday = get_day_blueprint(data["thursday"], thread)
+    # friday = get_day_blueprint(data["friday"], thread)
+    # saturday = get_day_blueprint(data["saturday"], thread)
+    # sunday = get_day_blueprint(data["sunday"], thread)
+    return f"[{monday},{tuesday},{wednesday}]"
+            # f",{thursday},{friday},{saturday},{sunday}]")

@@ -9,6 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Paytone+One&family=Readex+Pro:wght@400;600&family=Roboto:wght@300;400;500&family=Signika&display=swap"
           rel="stylesheet">
     <style>
+
+        @media print and (orientation: landscape) {
+            .page-break {
+                page-break-before: always;
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
