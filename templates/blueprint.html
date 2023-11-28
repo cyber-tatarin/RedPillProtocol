@@ -238,7 +238,7 @@
 <body>
 <div class="schedule-container">
     {% for day in week_schedule %}
-    <div class="day">
+    <div class="day page-break">
         <div class="day__name">{{ day.name }}</div>
         <div class="sections">
             {% for section in day.schedule %}
@@ -246,7 +246,7 @@
                 <div class="section__name">{{ section.name }}</div>
                 <div class="activities">
                     {% for activity in section.routine %}
-                    <div class="activity">
+                    <div class="activity page-break">
                         <div class="time">{{ activity.time }}</div>
                         <div class="activity-agenda">
                             <div class="activity-description">
@@ -271,7 +271,7 @@
             </div>
             {% endfor %}
         </div>
-        <div class="recommendation">
+        <div class="recommendation page-break">
             <div class="recommendation__agenda">Daily recommendation:</div>
             <div class="recommendation__hint">{{ day.recommendation }}</div>
         </div>
