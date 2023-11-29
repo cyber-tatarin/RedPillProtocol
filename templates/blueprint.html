@@ -10,16 +10,33 @@
           rel="stylesheet">
     <style>
 
-        @page {
-            size: A4 landscape;
-            margin: 10mm;
-        }
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 10mm;
+            }
 
-        @media print and (orientation: landscape) {
-            .page-break {
+            .day {
                 page-break-before: always;
-                page-break-after: always;
                 page-break-inside: avoid;
+                break-inside: avoid;
+                display: block;
+            }
+
+            .activity, .recommendation {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .day * {
+                page-break-after: auto;
+                page-break-before: auto;
+                page-break-inside: auto;
+            }
+
+            .day > *, .activity, .recommendation {
+                page-break-after: avoid;
+                page-break-before: avoid;
             }
         }
 
